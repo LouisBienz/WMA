@@ -7,14 +7,18 @@ html {
     height: 100%
 }
 
-body a,
+
 body div,
 body p {
-    color: #dfdfdf
+    color: #000000
+}
+
+body a {
+    color: #4b6660
 }
 
 body a:hover {
-    color: #cdcdcd
+    color: #548958
 }
 
 .title {
