@@ -12,6 +12,16 @@
 </head>
 
 <body class="d-flex flex-column bg-light">
+    <!-- Set visibility to hidden to hide it from normal users -->
+    <div style="visibility: hidden">
+        <!-- The anchor points to the id of the element -->
+        <a href="#main" >Skip to main content</a>
+        <a href="#news" >Skip to news and events section</a>
+        <a href="#studies" >Skip to studies section</a>
+        <a href="#researches" >Skip to researches section</a>
+        <a href="#nav" >Skip to navigation bar</a>
+        <a href="#footer">Skip to footer</a>
+    </div>
     <header role="banner">
         <div class="container-fluid d-none d-lg-block my-4 header">
         <div class="container">
@@ -36,7 +46,7 @@
         </div>
     </div>
     </header>
-    <nav role="navigation">
+    <nav role="navigation" id="nav">
         <div class="container-fluid bg-dark nav">
             <div class="container">
                 <div class="navbar navbar-dark bg-dark navbar-expand-lg px-0">
@@ -47,67 +57,67 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="nav-bar-content">
-                        <div class="navbar-nav mr-auto">
-                            <div class="nav-item">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
                                 <a class="nav-link" href="./">Homepage</a>
-                            </div>
-                            <div class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="nav-bar-faculties">Faculties</a>
-                                <div class="dropdown-menu">
-                                    <div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="nav-bar-faculties" aria-haspopup="true" aria-expanded="false">Faculties</a>
+                                <ul class="dropdown-menu"  >
+                                    <li>
                                         <a class="dropdown-item" href="./empty.html?title=Applied+sciences">Applied sciences</a>
-                                    </div>
-                                    <div>
+                                    </li>
+                                    <li>
                                         <a class="dropdown-item" href="./empty.html?title=Architecture+%26+planning">Architecture &amp; planning</a>
-                                    </div>
-                                    <div>
+                                    </li>
+                                    <li>
                                         <a class="dropdown-item" href="./empty.html?title=Construction+%26+environment">Construction &amp; environment</a>
-                                    </div>
-                                    <div>
+                                    </li>
+                                    <li>
                                         <a class="dropdown-item" href="./empty.html?title=Engineering">Engineering</a>
-                                    </div>
-                                    <div>
+                                    </li>
+                                    <li>
                                         <a class="dropdown-item" href="./empty.html?title=Health+%26+social+sciences">Health &amp; social sciences</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="nav-item dropdown">
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown" aria-haspopup="true" aria-expanded="false">
                                 <a class="nav-link dropdown-toggle" href="#" id="nav-bar-education">Education &amp; research</a>
-                                <div class="dropdown-menu">
-                                    <div>
+                                <ul class="dropdown-menu">
+                                    <li>
                                         <a class="dropdown-item" href="./empty.html?title=Bachelor">Bachelor</a>
-                                    </div>
-                                    <div>
+                                    </li>
+                                    <li>
                                         <a class="dropdown-item" href="./empty.html?title=Master">Master</a>
-                                    </div>
-                                    <div>
+                                    </li>
+                                    <li>
                                         <a class="dropdown-item" href="./empty.html?title=Continuing+education">Continuing education</a>
-                                    </div>
-                                    <div>
+                                    </li>
+                                    <li>
                                         <a class="dropdown-item" href="./empty.html?title=Doctorate">Doctorate</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="nav-item dropdown">
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown"  aria-haspopup="true" aria-expanded="false">
                                 <a class="nav-link dropdown-toggle" href="#" id="nav-bar-industry">Industry &amp; partners</a>
-                                <div class="dropdown-menu">
-                                    <div>
+                                <ul class="dropdown-menu">
+                                    <li>
                                         <a class="dropdown-item" href="./empty.html?title=Public+relations">Public relations</a>
-                                    </div>
-                                    <div>
+                                    </li>
+                                    <li>
                                         <a class="dropdown-item" href="./empty.html?title=Commercialization">Commercialization</a>
-                                    </div>
-                                    <div>
+                                    </li>
+                                    <li>
                                         <a class="dropdown-item" href="./empty.html?title=Sponsors+%26+partners">Sponsors &amp; partners</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="navbar-nav">
-                            <div class="nav-item">
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
                                 <a class="nav-link" href="./login.html">Login</a>
-                            </div>
-                        </div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
                 <div class="d-lg-none">
@@ -125,15 +135,15 @@
         <div class="container main" id="main">
         <div class="row no-gutters">
             <div class="col-12 col-lg-6">
-                <div class="p-4 mt-4 mr-lg-3 bg-white news">
+                <div class="p-4 mt-4 mr-lg-3 bg-white news" id="news">
                     <h1 class="text-primary mb-4 title">News &amp; events</h1>
                         <article role="article">
                             <div class="media mt-4">
                                 <img class="my-1 mr-2 rounded-right" src="./img/iceberg.jpg">
                                 <div class="media-body">
-                                    <div class="text-info mt-0 mb-2 subtitle">
+                                    <h2 class="text-info mt-0 mb-2 subtitle">
                                         <a href="./article.html">Global temperature record</a>
-                                    </div>
+                                    </h2>
                                     <p>
                                         The global surface temperature relative to 1951-1980 average recently published by NASA shows that 2016 ranks as the warmest
                                         year on record.
@@ -148,9 +158,9 @@
                             <div class="media mt-4">
                                 <img class="my-1 mr-2 rounded-right" src="./img/universe.jpg">
                                 <div class="media-body">
-                                    <div class="text-info mt-0 mb-2 subtitle">
+                                    <h2 class="text-info mt-0 mb-2 subtitle">
                                         <a href="./empty.html?title=Article">At iam decimum annum in spelunca iacet</a>
-                                    </div>
+                                    </h2>
                                     <p>
                                         Immo vero, inquit, ad beatissime vivendum parum est, ad beate vero satis. Claudii libidini, qui tum erat summo ne imperio,
                                         dederetur. Ergo id est convenienter naturae vivere, a natura discedere.
@@ -165,9 +175,9 @@
                             <div class="media mt-4">
                                 <img class="my-1 mr-2 rounded-right" src="./img/robots.jpg">
                                 <div class="media-body">
-                                    <div class="text-info mt-0 mb-2 subtitle">
+                                    <h2 class="text-info mt-0 mb-2 subtitle">
                                         <a href="./empty.html?title=Article">Quo plebiscito decreta a senatu est consuli quaestio Cn</a>
-                                    </div>
+                                    </h2>
                                     <p>
                                         Comprehensum, quod cognitum non habet? Quia nec honesto quic quam honestius nec turpi turpius. Maximeque eos videre possumus
                                         res gestas audire et legere velle, qui a spe gerendi absunt confecti senectute. Est enim
@@ -183,9 +193,9 @@
             </div>
             <div class="col-12 col-lg-6">
                 <aside role="complementary">
-                    <div class="p-4 mt-4 bg-white studies">
+                    <div class="p-4 mt-4 bg-white studies"  id="studies">
                         <h1 class="text-primary mb-4 title">Studies</h1>
-                        <p class="font-weight-bold">Advance your scientific education</p>
+                        <h2 class="font-weight-bold">Advance your scientific education</h2>
                         <div class="list-unstyled ml-3">
                             <p>
                                 <a href="./empty.html?title=Bachelor">Bachelor programmes</a>
@@ -200,13 +210,13 @@
                     </div>
                 </aside>
                 <aside role="complementary">
-                    <div class="p-4 mt-4 bg-white researches">
+                    <div class="p-4 mt-4 bg-white researches" id="researches">
                         <h1 class="text-primary mb-4 title">Researches</h1>
-                        <p class="font-weight-bold">Join our renowned research groups</p>
+                        <h2 class="font-weight-bold">Join our renowned research groups</h2>
                         <p class="ml-3">
                             <a href="./empty.html?title=Doctorate">Doctoral programmes</a>
                         </p>
-                        <p class="font-weight-bold">Latest publications</p>
+                        <h2 class="font-weight-bold">Latest publications</h2>
                         <div class="list-unstyled ml-3">
                             <p>
                                 <a href="./empty.html?title=Article">Tuo vero id quidem, inquam, arbitratu</a>
@@ -231,7 +241,7 @@
         </div>
     </div>
     </main>
-    <footer role="contentinfo">
+    <footer role="contentinfo" id="footer">
         <div class="container-fluid bg-dark mt-4 footer">
             <div class="container text-center py-3">
                 <div class="row justify-content-around">

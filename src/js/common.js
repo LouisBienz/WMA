@@ -48,3 +48,19 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.navbar-toggler')
         .addEventListener('click', toggleNavigation, false);
 }, false);
+
+document.querySelectorAll('.nav-link.dropdown-toggle') // Select the menu element
+    .forEach(item => {
+        item.addEventListener('click', function(event) { // Add event listener
+            if (!item.parentNode.querySelector('.dropdown-menu').classList.contains("show")) {
+                // Open the menu if it is closed
+                item.parentNode.style.display = 'block';
+                item.setAttribute('aria-expanded', "true");
+            } else {
+                // Close the menu it if is open
+                item.parentNode.style.display = 'closed';
+                item.setAttribute('aria-expanded', 'false');
+            }
+            event.preventDefault(); // Prevent default event handling
+        }, false)
+    });
