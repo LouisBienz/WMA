@@ -7,7 +7,6 @@ function openMenu(event, item=null) {
     event.preventDefault();
 
     var currentDropDownButton = event.target;
-
     var currentDropDownMenu =
         currentDropDownButton.parentNode.querySelector('.dropdown-menu');
     var isOpen = currentDropDownMenu.classList.contains('show');
@@ -19,11 +18,8 @@ function openMenu(event, item=null) {
             currentDropDownButton.setAttribute('aria-expanded', 'false')
             currentDropDownMenu.classList.remove('show');
         }
-        if (event.keyCode === 32) { // on 'space' open menu
-            currentDropDownButton.setAttribute('aria-expanded', 'true')
-            currentDropDownMenu.classList.add('show');
-        }
     })
+
     for (var j = 0; j < dropDownMenus.length; j++) {
         currentDropDownButton.setAttribute('aria-expanded', 'false')
         dropDownMenus[j].classList.remove('show');
@@ -32,6 +28,7 @@ function openMenu(event, item=null) {
         currentDropDownButton.setAttribute('aria-expanded', 'true');
         currentDropDownMenu.classList.add('show');
     }
+
 
 }
 
@@ -56,15 +53,44 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('#nav-bar-content .dropdown-toggle');
 
         for (var i = 0; i < dropDownToggles.length; i++) {
-            dropDownToggles[i].addEventListener('keydown', function (event) {
-                if (event.keyCode === 32) {
-                    openMenu(event)
-                }
-            });
             dropDownToggles[i].addEventListener('click', openMenu, false);
         }
 
     document.querySelector('.navbar-toggler')
         .addEventListener('click', toggleNavigation, false);
 }, false);
+
+/**
+ * when key is pressed
+ * if 'SPACE' key is pressed click target link
+ */
+$(document).keydown(function(event) {
+    if (event.which === 32) { // SPACE event
+        if (event.target.href) { // if has link, click
+            event.target.click()
+        }
+    }
+});
+
+/**
+ * close menu if 'TAB' key outside of expanded menu
+ * remove 'show' from all drop down menus and set aria expanded to false on the toggles
+ */
+$(document).keyup(function(event) {
+    if (event.which === 9) {
+        if(!event.target.parentNode.parentNode.classList.contains('show')) {
+            var dropDownMenus =
+                document.querySelectorAll('#nav-bar-content .dropdown .dropdown-menu');
+            for (var j = 0; j < dropDownMenus.length; j++) {
+                dropDownMenus[j].classList.remove('show');
+            }
+
+            var dropDownToggles =
+                document.querySelectorAll('#nav-bar-content .dropdown .dropdown-toggle');
+            for (var j = 0; j < dropDownToggles.length; j++) {
+                dropDownToggles[j].ariaExpanded = 'false';
+            }
+        }
+    }
+});
 
