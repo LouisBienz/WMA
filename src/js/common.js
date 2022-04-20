@@ -94,3 +94,25 @@ $(document).keyup(function(event) {
     }
 });
 
+var fontIncreaseButton = document.getElementById('font-increase-button');
+var fontDecreaseButton = document.getElementById('font-decrease-button');
+var rootHtml = document.getElementById('root');
+var style = window.getComputedStyle(rootHtml, null).getPropertyValue('font-size');
+var fontSize = parseFloat(style);
+
+/**
+ * increase font size when clicking on font increase button
+ */
+fontIncreaseButton.addEventListener('click', function (event) {
+    fontSize += 1
+    rootHtml.style.fontSize = fontSize + 'px';
+})
+
+/**
+ * decrease font size when clicking on font decrease button
+ */
+fontDecreaseButton.addEventListener('click', function (event) {
+    fontSize -= 1
+    rootHtml.style.fontSize = fontSize + 'px';
+})
+

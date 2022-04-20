@@ -12,7 +12,7 @@
 </head>
 
 <body class="d-flex flex-column bg-light">
-    <header role="banner">
+    <header role="banner" id="header">
         <div class="container-fluid d-none d-lg-block my-4 header">
             <div class="container">
                 <div class="row no-gutters">
@@ -27,16 +27,23 @@
                     <div class="col-4">
                         <div class="btn-toolbar justify-content-end">
                             <div class="btn-group btn-group-sm">
-                                <button class="btn btn-dark font-increase-button" id="font-increase-button">A+</button>
-                                <button class="btn btn-dark font-decrease-button" id="font-decrease-button">A-</button>
+                                <button class="btn btn-dark font-increase-button" id="font-increase-button" role="button" aria-describedby="increase-font-tooltip">A+</button>
+                                <div hidden id="increase-font-tooltip" role="tooltip">
+                                    Increase the font size.
+                                </div>
+                                <button class="btn btn-dark font-decrease-button" id="font-decrease-button" role="button" aria-describedby="decrease-font-tooltip">A-</button>
+                                <div hidden id="decrease-font-tooltip" role="tooltip">
+                                    Increase the font size.
+                                </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </header>
-    <nav role="navigation">
+    <nav role="navigation" id="nav">
         <div class="container-fluid bg-dark nav">
             <div class="container">
                 <div class="navbar navbar-dark bg-dark navbar-expand-lg px-0">
@@ -110,19 +117,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="d-lg-none">
-                    <div class="btn-toolbar justify-content-end">
-                        <div class="btn-group btn-group-sm">
-                            <button class="btn btn-dark text-white font-increase-button" id="font-increase-button-1">A+</button>
-                            <button class="btn btn-dark text-white font-decrease-button" id="font-decrease-button-1">A-</button>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </nav>
-    <main role="main">
-        <div class="container mt-4 main" id="main">
+    <main role="main" id="main">
+        <div class="container mt-4 main">
             <article role="article">
                 <div class="p-5 bg-white">
                     <h1 class="text-primary text-center mb-4 title">Global temperature record shows 2016 as the warmest year on record</h1>
@@ -200,7 +199,7 @@
         </div>
     </main>
 
-    <footer role="contentinfo">
+    <footer role="contentinfo" id="footer">
         <div class="container-fluid bg-dark mt-4 footer">
             <div class="container text-center py-3">
                 <div class="row justify-content-around">
