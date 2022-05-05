@@ -33,31 +33,39 @@ function login(event) {
     event.preventDefault();
     event.stopPropagation();
 
-    var hasError = false;
+    var hasEmailError = false;
 
     var email = document.getElementById('login-email-control');
     if (email.validity.valid) {
         setValid(email);
     } else if (email.validity.valueMissing) {
         setInvalid(email);
-        hasError = true;
+        hasEmailError = true;
     } else {
         setInvalid(email);
-        hasError = true;
+        hasEmailError = true;
     }
+
+    if (hasEmailError) {
+        document.getElementById("login-email-error").classList.remove('d-none');
+    } else {
+        document.getElementById("login-email-error").classList.add('d-none');
+    }
+
+    var hasPasswordError = false;
 
     var password = document.getElementById('login-password-control');
     if (password.value.trim().length == 0) {
         setInvalid(password);
-        hasError = true;
+        hasPasswordError = true;
     } else {
         setValid(password);
-    }
+    } 
 
-    if (hasError) {
-        document.getElementById('login-error').classList.remove('d-none');
+    if (hasPasswordError) {
+        document.getElementById("login-password-error").classList.remove('d-none');
     } else {
-        document.getElementById('login-error').classList.add('d-none');
+        document.getElementById("login-password-error").classList.add('d-none');
     }
 }
 
@@ -76,19 +84,19 @@ function login(event) {
         setValid(email);
     } else if (email.validity.valueMissing) {
         setInvalid(email);
-        hasError = true;
+        hasEmailError = true;
     } else {
         setInvalid(email);
-        hasError = true;
+        hasEmailError = true;
     }
 
     var password = document.getElementById('login-password-control');
     removeValidation(password);
 
     if (hasEmailError) {
-        document.getElementById("login-email-error").classList.add('d-none');
-    } else {
         document.getElementById("login-email-error").classList.remove('d-none');
+    } else {
+        document.getElementById("login-email-error").classList.add('d-none');
     }
 }
 
