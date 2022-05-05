@@ -2,15 +2,15 @@
  * Open the current clicked menu and close the other menus
  * @param {object} event - The DOM event
  */
-function openMenu(event, item=null) {
+function openMenu(event) {
     event.stopPropagation();
     event.preventDefault();
 
-    var currentDropDownButton = event.target;
-    var currentDropDownMenu =
+    const currentDropDownButton = event.target;
+    const currentDropDownMenu =
         currentDropDownButton.parentNode.querySelector('.dropdown-menu');
-    var isOpen = currentDropDownMenu.classList.contains('show');
-    var dropDownMenus =
+    const isOpen = currentDropDownMenu.classList.contains('show');
+    const dropDownMenus =
         document.querySelectorAll('#nav-bar-content .dropdown .dropdown-menu');
 
     currentDropDownButton.addEventListener('keydown', function (event) {
@@ -20,7 +20,7 @@ function openMenu(event, item=null) {
         }
     })
 
-    for (var j = 0; j < dropDownMenus.length; j++) {
+    for (let j = 0; j < dropDownMenus.length; j++) {
         currentDropDownButton.setAttribute('aria-expanded', 'false')
         dropDownMenus[j].classList.remove('show');
     }
@@ -40,7 +40,7 @@ function toggleNavigation(event) {
     event.stopPropagation();
     event.preventDefault();
 
-    var content = document.getElementById('nav-bar-content');
+    const content = document.getElementById('nav-bar-content');
     if (content.classList.contains('collapse')) {
         content.classList.remove('collapse');
     } else {
@@ -49,10 +49,10 @@ function toggleNavigation(event) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    var dropDownToggles =
+    const dropDownToggles =
         document.querySelectorAll('#nav-bar-content .dropdown-toggle');
 
-        for (var i = 0; i < dropDownToggles.length; i++) {
+    for (let i = 0; i < dropDownToggles.length; i++) {
             dropDownToggles[i].addEventListener('click', openMenu, false);
         }
 
@@ -79,26 +79,27 @@ $(document).keydown(function(event) {
 $(document).keyup(function(event) {
     if (event.which === 9) {
         if(!event.target.parentNode.parentNode.classList.contains('show')) {
-            var dropDownMenus =
+            let j;
+            const dropDownMenus =
                 document.querySelectorAll('#nav-bar-content .dropdown .dropdown-menu');
-            for (var j = 0; j < dropDownMenus.length; j++) {
+            for (j = 0; j < dropDownMenus.length; j++) {
                 dropDownMenus[j].classList.remove('show');
             }
 
-            var dropDownToggles =
+            const dropDownToggles =
                 document.querySelectorAll('#nav-bar-content .dropdown .dropdown-toggle');
-            for (var j = 0; j < dropDownToggles.length; j++) {
+            for (j = 0; j < dropDownToggles.length; j++) {
                 dropDownToggles[j].ariaExpanded = 'false';
             }
         }
     }
 });
 
-var fontIncreaseButton = document.getElementById('font-increase-button');
-var fontDecreaseButton = document.getElementById('font-decrease-button');
-var rootHtml = document.getElementById('root');
-var style = window.getComputedStyle(rootHtml, null).getPropertyValue('font-size');
-var fontSize = parseFloat(style);
+const fontIncreaseButton = document.getElementById('font-increase-button');
+const fontDecreaseButton = document.getElementById('font-decrease-button');
+const rootHtml = document.getElementById('root');
+const style = window.getComputedStyle(rootHtml, null).getPropertyValue('font-size');
+let fontSize = parseFloat(style);
 
 /**
  * increase font size when clicking on font increase button
