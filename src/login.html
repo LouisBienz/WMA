@@ -128,7 +128,7 @@
                         <div class="p-4 mr-md-3 bg-white">
                             <fieldset>
                                 <legend><h1 class="text-primary mb-4 title">Login</h1></legend>
-                                <div class="text-danger mb-4 d-none subtitle" id="login-error">Please correct the error(s)</div>
+                                
                                 <ul class="sr-only" id="login-error-list"></ul>
                                 <form id="login-form" novalidate>
                                     <div class="form-group">
@@ -140,6 +140,7 @@
                                             required
                                             aria-required="true">
                                         <small class="invalid-feedback"></small>
+                                        <div class="text-danger mb-4 d-none subtitle" id="login-email-error" aria-live="assertive">Please correct the email</div>
                                     </div>
                                     <div class="form-group">
                                         <label for="login-password-control">Password</label>

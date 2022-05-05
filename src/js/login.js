@@ -65,11 +65,11 @@ function login(event) {
  * Validate the login form and try to retrieve the password
  * @param {object} event - The DOM event
  */
-function forgot(event) {
+ function forgot(event) {
     event.preventDefault();
     event.stopPropagation();
 
-    var hasError = false;
+    var hasEmailError = false;
 
     var email = document.getElementById('login-email-control');
     if (email.validity.valid) {
@@ -85,10 +85,10 @@ function forgot(event) {
     var password = document.getElementById('login-password-control');
     removeValidation(password);
 
-    if (hasError) {
-        document.getElementById('login-error').classList.remove('d-none');
+    if (hasEmailError) {
+        document.getElementById("login-email-error").classList.add('d-none');
     } else {
-        document.getElementById('login-error').classList.add('d-none');
+        document.getElementById("login-email-error").classList.remove('d-none');
     }
 }
 
