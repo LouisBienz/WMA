@@ -108,68 +108,107 @@ function register(event) {
     event.preventDefault();
     event.stopPropagation();
 
-    var hasError = false;
+    /**validate First Name */
+    var hasFirstNameError = false;
 
     var firstName = document.getElementById('register-first-name-control');
     if (firstName.value.trim().length == 0) {
         setInvalid(firstName);
-        hasError = true;
+        hasFirstNameError = true;
     } else if (firstName.validity.valid) {
         setValid(firstName);
     }
 
+    if (hasFirstNameError) {
+        document.getElementById('register-first-name-error').classList.remove('d-none');
+    } else {
+        document.getElementById('register-first-name-error').classList.add('d-none');
+    }
+
+
+    /**validate Last Name */
+    var hasLastNameError = false;
+
     var lastName = document.getElementById('register-last-name-control');
     if (lastName.value.trim().length == 0) {
         setInvalid(lastName);
-        hasError = true;
+        hasLastNameError = true;
     } else if (lastName.validity.valid) {
         setValid(lastName);
     }
+
+    if (hasLastNameError) {
+        document.getElementById('register-last-name-error').classList.remove('d-none');
+    } else {
+        document.getElementById('register-last-name-error').classList.add('d-none');
+    }
+
+    /**validate Email */
+    var hasEmailError = false;
 
     var email = document.getElementById('register-email-control');
     if (email.validity.valid) {
         setValid(email);
     } else if (email.validity.valueMissing) {
         setInvalid(email);
-        hasError = true;
+        hasEmailError = true;
     } else {
         setInvalid(email);
-        hasError = true;
+        hasEmailError = true;
     }
+
+    if (hasEmailError) {
+        document.getElementById("register-email-error").classList.remove('d-none');
+    } else {
+        document.getElementById("register-email-error").classList.add('d-none');
+    }
+
+    /**validate Password */
+    var hasPasswordError = false;
 
     var password = document.getElementById('register-password-control');
     var passwordValue = password.value.trim();
     if (passwordValue.length < 8) {
         setInvalid(password);
-        hasError = true;
+        hasPasswordError = true;
     } else if (passwordValue.length > 16) {
         setInvalid(password);
-        hasError = true;
+        hasPasswordError = true;
     } else if (passwordValue.match(/[a-zA-Z]+/) == null) {
         setInvalid(password);
-        hasError = true;
+        hasPasswordError = true;
     } else if (passwordValue.match(/[0-9]+/) == null) {
         setInvalid(password);
-        hasError = true;
+        hasPasswordError = true;
     } else {
         setValid(password);
     }
 
+    if (hasPasswordError) {
+        document.getElementById("register-password-error").classList.remove('d-none');
+    } else {
+        document.getElementById("register-password-error").classList.add('d-none');
+    }
+
+
+    /**validate Programme */
+    var hasProgrammeError = false;
+
     var programme = document.getElementById('register-programme-control');
     if (programme.validity.valueMissing) {
         setInvalid(programme);
-        hasError = true;
+        hasProgrammeError = true;
     } else if (!programme.validity.valid) {
         setInvalid(programme);
-        hasError = true;
+        hasProgrammeError = true;
     } else {
         setValid(programme);
     }
 
-    if (hasError) {
-        document.getElementById('register-error').classList.remove('d-none');
+    if (hasProgrammeError) {
+        document.getElementById('register-programme-error').classList.remove('d-none');
     } else {
-        document.getElementById('register-error').classList.add('d-none');
+        document.getElementById('register-programme-error').classList.add('d-none');
     }
 }
 
