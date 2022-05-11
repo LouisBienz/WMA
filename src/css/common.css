@@ -59,3 +59,17 @@ body a:hover {
 .main {
     flex: 1 0 auto
 }
+
+.skip-to-content-link a{
+    background: #e77e23;
+    height: 30px;
+    left: 50%;
+    padding: 8px;
+    position: absolute;
+    transform: translateY(-100%);
+    transition: transform 0.3s;
+}
+
+.skip-to-content-link a:focus {
+    transform: translateY(0%);
+}
