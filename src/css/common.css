@@ -14,12 +14,23 @@ body p {
 }
 
 body a {
-    color: #4b6660
+    color: #435B55
 }
 
-body a:hover {
-    color: #548958
+.text-primary {
+    color: #4F5453 !important
 }
+
+.text-info {
+    color: #000000 !important
+}
+
+.date,
+.figure-caption {
+    font-size: 90%;
+    color: #455E54;
+}
+
 
 .title {
     font-size: 2rem;
