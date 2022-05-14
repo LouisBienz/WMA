@@ -15,13 +15,13 @@
     <!-- Set visibility to hidden to hide it from normal users -->
     <div class="skip-to-content-link">
         <!-- The anchor points to the id of the element -->
+        <a href="#header">Skip to header</a>
+        <a href="#nav" >Skip to navigation bar</a>
         <a href="#main" >Skip to main content</a>
         <a href="#news" >Skip to news and events section</a>
         <a href="#studies" >Skip to studies section</a>
         <a href="#researches" >Skip to researches section</a>
-        <a href="#nav" >Skip to navigation bar</a>
         <a href="#footer">Skip to footer</a>
-        <a href="#header">Skip to header</a>
     </div>
     <header role="banner" id="header">
         <div class="container-fluid d-none d-lg-block my-4 header">
@@ -38,11 +38,11 @@
                 <div class="col-4">
                     <div class="btn-toolbar justify-content-end">
                         <div class="btn-group btn-group-sm">
-                            <button class="btn btn-dark font-increase-button" id="font-increase-button" role="button" aria-describedby="increase-font-tooltip">A+</button>
+                            <button class="btn btn-dark font-increase-button" id="font-increase-button" role="button" aria-labelledby="increase-font-tooltip">A+</button>
                             <div hidden id="increase-font-tooltip" role="tooltip">
                                 Increase the font size.
                             </div>
-                            <button class="btn btn-dark font-decrease-button" id="font-decrease-button" role="button" aria-describedby="decrease-font-tooltip">A-</button>
+                            <button class="btn btn-dark font-decrease-button" id="font-decrease-button" role="button" aria-labelledby="decrease-font-tooltip">A-</button>
                             <div hidden id="decrease-font-tooltip" role="tooltip">
                                 Decrease the font size.
                             </div>
@@ -102,8 +102,8 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item dropdown"  aria-haspopup="true" aria-expanded="false">
-                                <a class="nav-link dropdown-toggle" href="#" id="nav-bar-industry">Industry &amp; partners</a>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="nav-bar-industry" aria-haspopup="true" aria-expanded="false">Industry &amp; partners</a>
                                 <ul class="dropdown-menu">
                                     <li>
                                         <a class="dropdown-item" href="./empty.html?title=Public+relations">Public relations</a>
@@ -133,11 +133,11 @@
             <div class="col-12 col-lg-6">
                 <div class="p-4 mt-4 mr-lg-3 bg-white news" id="news">
                     <h1 class="text-primary mb-4 title">News &amp; events</h1>
-                        <article role="article">
+                        <article role="article" aria-labelledby="article-1">
                             <div class="media mt-4">
                                 <img class="my-1 mr-2 rounded-right" src="./img/iceberg.jpg" alt="Photo of a small iceberg">
                                 <div class="media-body">
-                                    <h2 class="text-info mt-0 mb-2 subtitle">
+                                    <h2 class="text-info mt-0 mb-2 subtitle" id="article-1">
                                         <a href="./article.html">Global temperature record</a>
                                     </h2>
                                     <p>
@@ -150,11 +150,11 @@
                                 </div>
                             </div>
                         </article>
-                        <article role="article">
+                        <article role="article" aria-labelledby="article-2">
                             <div class="media mt-4">
                                 <img class="my-1 mr-2 rounded-right" src="./img/universe.jpg" alt="Photo of the universe">
                                 <div class="media-body">
-                                    <h2 class="text-info mt-0 mb-2 subtitle">
+                                    <h2 class="text-info mt-0 mb-2 subtitle" id="article-2">
                                         <a href="./empty.html?title=Article">At iam decimum annum in spelunca iacet</a>
                                     </h2>
                                     <p>
@@ -167,11 +167,11 @@
                                 </div>
                             </div>
                         </article>
-                        <article role="article">
+                        <article role="article" aria-labelledby="article-3">
                             <div class="media mt-4">
                                 <img class="my-1 mr-2 rounded-right" src="./img/robots.jpg" alt="Photo of robots holding and throwing a disk">
                                 <div class="media-body">
-                                    <h2 class="text-info mt-0 mb-2 subtitle">
+                                    <h2 class="text-info mt-0 mb-2 subtitle" id="article-3">
                                         <a href="./empty.html?title=Article">Quo plebiscito decreta a senatu est consuli quaestio Cn</a>
                                     </h2>
                                     <p>
