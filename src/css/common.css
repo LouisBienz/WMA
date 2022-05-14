@@ -78,6 +78,15 @@ label {
 
 .form-error {
     font-size: 80%;
+    margin-bottom: .5rem !important;
+}
+
+.nav-link {
+    color: hsla(0, 0%, 100%, .75) !important;
+}
+
+.nav-link:hover {
+    color: hsla(0, 0%, 100%, 1) !important;
 }
 
 .skip-to-content-link a{
