@@ -13,13 +13,6 @@ function openMenu(event) {
     const dropDownMenus =
         document.querySelectorAll('#nav-bar-content .dropdown .dropdown-menu');
 
-    currentDropDownButton.addEventListener('keydown', function (event) {
-        if (event.keyCode === 27) { // on 'esc' close menu
-            currentDropDownButton.setAttribute('aria-expanded', 'false')
-            currentDropDownMenu.classList.remove('show');
-        }
-    })
-
     for (let j = 0; j < dropDownMenus.length; j++) {
         currentDropDownButton.setAttribute('aria-expanded', 'false')
         dropDownMenus[j].classList.remove('show');
@@ -66,18 +59,22 @@ document.addEventListener('DOMContentLoaded', function() {
  */
 $(document).keydown(function(event) {
     if (event.which === 32) { // SPACE event
-        if (event.target.href) { // if has link, click
+        if (event.target.className === "nav-link dropdown-toggle") {
+            event.target.setAttribute('aria-expanded', "true")
+            event.target.nextElementSibling.classList.add("show")
+            event.preventDefault()
+        } else if (event.target.href) {
             event.target.click()
         }
     }
 });
 
 /**
- * close menu if 'TAB' key outside of expanded menu
+ * close menu if 'TAB' key outside of expanded menu or if clicking ESC key
  * remove 'show' from all drop down menus and set aria expanded to false on the toggles
  */
 $(document).keyup(function(event) {
-    if (event.which === 9) {
+    if (event.which === 9) { // TAB
         if(!event.target.parentNode.parentNode.classList.contains('show')) {
             let j;
             const dropDownMenus =
@@ -92,6 +89,21 @@ $(document).keyup(function(event) {
                 dropDownToggles[j].ariaExpanded = 'false';
             }
         }
+    }
+    if (event.which === 27) { // ESC
+        let dropdownMenu = {}
+        let dropdownToggle = {}
+        if (event.target.className === "nav-link dropdown-toggle" ) {
+            dropdownMenu = event.target.nextElementSibling;
+            dropdownToggle = event.target;
+        }
+        else if(event.target.parentNode.parentNode.classList.contains('show')) {
+            dropdownToggle = event.target.parentNode.parentNode.previousElementSibling,
+            dropdownMenu = event.target.parentNode.parentNode;
+        }
+        dropdownToggle.setAttribute('aria-expanded', "false")
+        dropdownMenu.classList.remove("show")
+        dropdownToggle.focus()
     }
 });
 
