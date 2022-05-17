@@ -67,6 +67,12 @@ function login(event) {
     } else {
         document.getElementById("login-password-error").classList.add('d-none');
     }
+
+    if ((hasEmailError) || (hasPasswordError)) {
+        document.getElementById("login-error").classList.remove('d-none');
+    } else {
+            document.getElementById("login-error").classList.add('d-none');
+        }
 }
 
 /**
@@ -209,6 +215,12 @@ function register(event) {
         document.getElementById('register-programme-error').classList.remove('d-none');
     } else {
         document.getElementById('register-programme-error').classList.add('d-none');
+    }
+
+    if ((hasFirstNameError) || (hasLastNameError) || (hasEmailError) || (hasPasswordError) || (hasProgrammeError)) {
+        document.getElementById("register-error").classList.remove('d-none');
+    } else {
+        document.getElementById("register-error").classList.add('d-none');
     }
 }
 
